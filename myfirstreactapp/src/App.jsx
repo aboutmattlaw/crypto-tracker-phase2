@@ -1,18 +1,35 @@
-import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import CoinDetailPage from "./pages/CoinDetailPage";
-import CoinSummaryPage from "./pages/CoinSummaryPage";
-import Header from "./components/Header";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./App.css";
+import Header from "./components/Header";
+import Coin from "../src/components/Coin";
 
-export default function App() {
-  console.log("hello");
+function App() {
+  const [coins, setCoins] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=200&page=1&sparkline=false"
+      )
+      .then((res) => {
+        setCoins(res.data);
+        console.log(res.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  console.log(coins);
+
   return (
     <div>
-      <BrowserRouter>
-        <Header />
-        <Route exact path="/" component={CoinSummaryPage} />
-      </BrowserRouter>
+      <Header />
+      <ul className="coinlist list-group mt-2">
+        {coins.map((coin) => {
+          return <Coin key={coin.id} coin={coin} />;
+        })}
+      </ul>
     </div>
   );
 }
+export default App;
