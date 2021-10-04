@@ -26,7 +26,18 @@ function App() {
       <Header />
       <ul className="coinlist list-group mt-2">
         {coins.map((coin) => {
-          return <Coin key={coin.id} coin={coin} />;
+          return (
+            <Coin
+              key={coin.id}
+              name={coin.name}
+              price={coin.current_price}
+              symbol={coin.symbol}
+              marketcap={coin.total_volume}
+              volume={coin.market_cap}
+              image={coin.image}
+              priceChange={coin.price_change_percentage_24h}
+            />
+          );
         })}
       </ul>
     </div>

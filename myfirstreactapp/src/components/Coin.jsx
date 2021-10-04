@@ -1,12 +1,28 @@
 import React from "react";
 
-export default function Coin({ coin }) {
-  console.log(coin);
+export default function Coin({
+  name,
+  price,
+  symbol,
+  marketcap,
+  volume,
+  image,
+  priceChange,
+  coin,
+}) {
   return (
-    <li>
-      <img className="coinlist-image" src={coin.image} alt="" />
-      <span>{coin.current_price}</span>
-      <span>{coin.price_change_percentage_24h}</span>
-    </li>
+    <div className="coin-container">
+      <div className="coin-row">
+        <div className="coin">
+          <img src={image} alt="" />
+          <h1>{name}</h1>
+          <p>{symbol}</p>
+        </div>
+        <div className="coin-data">
+          <p>{price}</p>
+          <p>{volume}</p>
+        </div>
+      </div>
+    </div>
   );
 }
