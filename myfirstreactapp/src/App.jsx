@@ -3,9 +3,11 @@ import axios from "axios";
 import "./App.css";
 import Header from "./components/Header";
 import Coin from "../src/components/Coin";
+import SearchCoin from "./components/SearchCoin";
 
 function App() {
   const [coins, setCoins] = useState([]);
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     axios
@@ -24,6 +26,9 @@ function App() {
   return (
     <div>
       <Header />
+      {visible ? <SearchCoin /> : null} 
+      <button onClick={() => setVisible(!visible)}>{!visible ? 'Search' : 'Hide'}</button>
+      <hr/>
       <ul className="coinlist list-group mt-2">
         {coins.map((coin) => {
           return (
