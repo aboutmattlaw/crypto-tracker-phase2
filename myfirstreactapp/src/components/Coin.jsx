@@ -10,10 +10,8 @@ export default function Coin({
   volume,
   image,
   priceChange,
-  coins,
-  key,
+  id,
 }) {
-  console.log(key);
   const [favorite, setFavorite] = useState(false);
 
   function handleFavorite() {
@@ -34,7 +32,7 @@ export default function Coin({
             </button>
             <img src={image} alt="" />
             <h1>{name}</h1>
-            <Link to={`/coins/${name}`}>
+            <Link to={`/coins/${id}`}>
               <p className="coin-symbol">{symbol}</p>
             </Link>
           </div>

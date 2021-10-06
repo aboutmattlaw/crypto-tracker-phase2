@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import Header from "./components/Header";
-import SearchCoin from "./components/SearchCoin";
 import { Route, Switch } from "react-router-dom";
 import CoinDetailPage from "./pages/CoinDetailPage";
 import CoinIndexPage from "./pages/CoinIndexPage";
@@ -41,16 +40,16 @@ function App() {
       {/* <Router> */}
       <Switch>
         <Route exact path="/coins">
+          <Header />
           <CoinIndexPage
             handleChange={handleChange}
             filteredCoinsArray={filteredCoins()}
           />
         </Route>
-        <Route exact path="/coins/:key">
+        <Route exact path="/coins/:id">
           <CoinDetailPage />
         </Route>
       </Switch>
-      {/* </Router> */}
     </div>
   );
 }
