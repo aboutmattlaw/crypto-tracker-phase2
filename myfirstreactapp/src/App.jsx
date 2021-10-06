@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import Header from "./components/Header";
-import Coin from "../src/components/Coin";
 import SearchCoin from "./components/SearchCoin";
+import { Route, Switch } from "react-router-dom";
+import CoinDetailPage from "./pages/CoinDetailPage";
+import CoinIndexPage from "./pages/CoinIndexPage";
 
 function App() {
   const [coins, setCoins] = useState([]);
-  const [visible, setVisible] = useState(false)
+  const [filtered, setFiltered] = useState("");
 
   useEffect(() => {
     axios
@@ -16,35 +18,39 @@ function App() {
       )
       .then((res) => {
         setCoins(res.data);
-        console.log(res.data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => alert(error));
   }, []);
 
-  console.log(coins);
+  function handleChange(e) {
+    const searchedCoin = e.target.value;
+
+    setFiltered(searchedCoin);
+  }
+
+  function filteredCoins() {
+    const newSearchArray = coins.filter((coin) => {
+      return coin.name.toLowerCase().includes(filtered.toLowerCase());
+    });
+
+    return newSearchArray;
+  }
 
   return (
-    <div>
-      <Header />
-      {visible ? <SearchCoin /> : null} 
-      <button onClick={() => setVisible(!visible)}>{!visible ? 'Search' : 'Hide'}</button>
-      <hr/>
-      <ul className="coinlist list-group mt-2">
-        {coins.map((coin) => {
-          return (
-            <Coin
-              key={coin.id}
-              name={coin.name}
-              price={coin.current_price}
-              symbol={coin.symbol}
-              marketcap={coin.market_cap}
-              volume={coin.total_volume}
-              image={coin.image}
-              priceChange={coin.price_change_percentage_24h}
-            />
-          );
-        })}
-      </ul>
+    <div className="coin-app">
+      {/* <Router> */}
+      <Switch>
+        <Route exact path="/coins">
+          <CoinIndexPage
+            handleChange={handleChange}
+            filteredCoinsArray={filteredCoins()}
+          />
+        </Route>
+        <Route exact path="/coins/:key">
+          <CoinDetailPage />
+        </Route>
+      </Switch>
+      {/* </Router> */}
     </div>
   );
 }

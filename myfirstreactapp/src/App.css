@@ -5,10 +5,10 @@
   text-decoration: none !important;
 }
 
-body {
-  background-color: #263238;
-}
-
+/* body {
+  background: linear-gradient(-30deg, rgba(194, 43, 231, 0.418), #4d87df81),
+    linear-gradient(30deg, rgb(151, 56, 214), rgb(77, 152, 223));
+} */
 ul {
   list-style: none;
 }
