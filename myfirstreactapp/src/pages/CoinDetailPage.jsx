@@ -8,11 +8,16 @@ export default function CoinDetailPage() {
   const { id } = useParams();
 
   const [coinData, setCoinData] = useState({});
+  // const [timeframe, setTimeframe] = useState("year");
 
   const formatData = (data) => {
+    // create new array of just 12 months
+
     return data.map((el) => {
+      // debugger;
       return {
-        t: el[0],
+        t: new Date(el[0]).toLocaleDateString("en-US", { month: "long" }),
+        // t: new Date(el[0]).toLocaleDateString(),
         y: el[1].toFixed(2),
       };
     });
@@ -59,8 +64,8 @@ export default function CoinDetailPage() {
   // use useEffect to make a fetch request to a single coin using the usePArams info
   const renderData = () => {
     return (
-      <div>
-        <Chart data={coinData} />
+      <div className="chart-container">
+        <Chart data={coinData.year} />
         <CoinData />
       </div>
     );
