@@ -13,12 +13,15 @@ export default function CoinDetailPage() {
   const formatData = (data) => {
     // create new array of just 12 months
 
+    const objtoArray = Object.keys(data);
+    console.log("obj to array here", objtoArray);
+
     return data.map((el) => {
       // debugger;
       return {
         t: new Date(el[0]).toLocaleDateString("en-US", { month: "long" }),
         // t: new Date(el[0]).toLocaleDateString(),
-        y: el[1].toFixed(2),
+        y: parseInt(el[1].toFixed(2)),
       };
     });
   };
@@ -65,7 +68,7 @@ export default function CoinDetailPage() {
   const renderData = () => {
     return (
       <div className="chart-container">
-        <Chart data={coinData.year} />
+        <Chart data={coinData.year} detail={coinData.detail} />
         <CoinData />
       </div>
     );
