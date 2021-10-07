@@ -70,6 +70,9 @@ export default function CoinDetailPage() {
       <div className="chart-container">
         <Chart data={coinData.year} detail={coinData.detail} />
         <CoinData />
+
+        {/* <Chart data={coinData.year} />
+        <CoinData data={coinData.detail}/> */}
       </div>
     );
   };

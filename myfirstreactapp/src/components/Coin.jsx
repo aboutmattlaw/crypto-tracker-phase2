@@ -11,10 +11,13 @@ export default function Coin({
   image,
   priceChange,
   id,
+  addToFavorites
 }) {
   const [favorite, setFavorite] = useState(false);
 
   function handleFavorite() {
+    const addCoin = {name, price, symbol, marketcap, volume, image, priceChange, id}
+    addToFavorites(addCoin)
     setFavorite((favorite) => !favorite);
   }
 
@@ -28,7 +31,7 @@ export default function Coin({
               type="button"
               onClick={handleFavorite}
             >
-              fav
+              {favorite ? '👎' : '👍' }
             </button>
             <img src={image} alt="" />
             <h1>{name}</h1>
