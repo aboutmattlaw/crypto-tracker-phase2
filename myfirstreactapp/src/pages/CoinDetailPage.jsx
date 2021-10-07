@@ -10,6 +10,8 @@ export default function CoinDetailPage() {
   const [coinData, setCoinData] = useState({});
   // const [timeframe, setTimeframe] = useState("year");
 
+ 
+
   const formatData = (data) => {
     // create new array of just 12 months
 
@@ -66,9 +68,9 @@ export default function CoinDetailPage() {
     return (
       <div className="chart-container">
         <Chart data={coinData.year} />
-        <CoinData />
+        <CoinData data={coinData.detail}/>
       </div>
     );
   };
   return renderData();
-}
+};

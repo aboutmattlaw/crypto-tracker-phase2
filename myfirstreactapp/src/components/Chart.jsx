@@ -55,7 +55,7 @@ const data = [
 ];
 
 function Chart({ data }) {
-  console.log("Our Data", data);
+  // console.log("Our Data", data);
 
   return (
     <ResponsiveContainer width="100%" height="100%">

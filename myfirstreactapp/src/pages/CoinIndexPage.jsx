@@ -1,7 +1,7 @@
 import React from "react";
 import Coin from "../components/Coin";
 
-const CoinIndexPage = ({ handleChange, filteredCoinsArray }) => {
+const CoinIndexPage = ({ handleChange, filteredCoinsArray, addToFavorites }) => {
   return (
     <>
       <div className="coin-search">
@@ -26,6 +26,7 @@ const CoinIndexPage = ({ handleChange, filteredCoinsArray }) => {
             volume={coin.total_volume}
             image={coin.image}
             priceChange={coin.price_change_percentage_24h}
+            addToFavorites={addToFavorites}
           />
         );
       })}
