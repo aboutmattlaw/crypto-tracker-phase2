@@ -9,6 +9,15 @@ export default function CoinDetailPage() {
 
   const [coinData, setCoinData] = useState({});
 
+  const formatData = (data) => {
+    return data.map((el) => {
+      return {
+        t: el[0],
+        y: el[1].toFixed(2),
+      };
+    });
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const resultsDay = await coinGecko.get(`/coins/${id}/market_chart/`, {
@@ -38,9 +47,9 @@ export default function CoinDetailPage() {
       });
 
       setCoinData({
-        day: resultsDay.data.prices,
-        week: resultsWeek.data.prices,
-        year: resultsYear.data.prices,
+        day: formatData(resultsDay.data.prices),
+        week: formatData(resultsWeek.data.prices),
+        year: formatData(resultsYear.data.prices),
         detail: coinDetailData.data[0],
       });
     };
@@ -51,7 +60,7 @@ export default function CoinDetailPage() {
   const renderData = () => {
     return (
       <div>
-        <Chart />
+        <Chart data={coinData} />
         <CoinData />
       </div>
     );
