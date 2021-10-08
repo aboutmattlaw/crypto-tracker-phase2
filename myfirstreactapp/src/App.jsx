@@ -38,6 +38,7 @@ function App() {
   }, []);
 
   function handleChange(e) {
+    console.log(e);
     const searchedCoin = e.target.value;
 
     setFiltered(searchedCoin);
@@ -83,4 +84,4 @@ function App() {
     </div>
   );
 }
-export default App;
+export default App; 
