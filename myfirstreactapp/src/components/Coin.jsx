@@ -31,7 +31,7 @@ export default function Coin({
               type="button"
               onClick={handleFavorite}
             >
-              {favorite ? '👎' : '👍' }
+              {favorite ? '✩' : '⭐' }
             </button>
             <img src={image} alt="" />
             <h1>{name}</h1>

@@ -11,6 +11,7 @@ function App() {
   const [coins, setCoins] = useState([]);
   const [faveCoins, setFaveCoins] = useState([]);
   const [filtered, setFiltered] = useState("");
+  const [darkMode, setDarkMode] = useState("not-dark-mode")
 
   function addToFavorites(coin){
     console.log('hello');
@@ -45,9 +46,18 @@ function App() {
     return newSearchArray;
   }
 
+  function handleDarkMode() {
+    console.log(" Dark Mode")
+    if(darkMode === "not-dark-mode") {
+      setDarkMode("dark-mode")
+    }else {
+      setDarkMode("not-dark-mode")
+    }
+  }
+
   return (
-    <div className="coin-app">
-      <Header />
+    <div className={darkMode}>
+      <Header handleDarkMode={handleDarkMode}/>
       <Switch>
         <Route exact path="/coins">
           <CoinIndexPage
