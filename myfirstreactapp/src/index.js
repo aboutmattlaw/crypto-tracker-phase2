@@ -4,7 +4,6 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import Chart from "chart.js";
 
-console.log("hello");
 ReactDOM.render(
   <BrowserRouter>
     <App />

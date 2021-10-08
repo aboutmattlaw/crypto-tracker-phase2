@@ -68,11 +68,8 @@ export default function CoinDetailPage() {
   const renderData = () => {
     return (
       <div className="chart-container">
-        <Chart data={coinData.year} detail={coinData.detail} />
-        <CoinData />
-
-        {/* <Chart data={coinData.year} />
-        <CoinData data={coinData.detail}/> */}
+        <Chart data={coinData.year} />
+        <CoinData data={coinData.detail}/>
       </div>
     );
   };

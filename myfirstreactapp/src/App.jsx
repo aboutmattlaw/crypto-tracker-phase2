@@ -47,7 +47,7 @@ function App() {
 
   return (
     <div className="coin-app">
-       <Header />
+      <Header />
       <Switch>
         <Route exact path="/coins">
           <CoinIndexPage

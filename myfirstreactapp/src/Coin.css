@@ -52,3 +52,9 @@
 .coin-marketcap {
   width: 230px;
 }
+
+.coin-button {
+  margin-right: 10px;
+  border: none;
+  background: transparent
+}
