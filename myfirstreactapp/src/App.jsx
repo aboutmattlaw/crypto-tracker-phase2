@@ -11,7 +11,12 @@ function App() {
   const [coins, setCoins] = useState([]);
   const [faveCoins, setFaveCoins] = useState([]);
   const [filtered, setFiltered] = useState("");
-  const [darkMode, setDarkMode] = useState("not-dark-mode")
+  const [darkMode, setDarkMode] = useState("not-dark-mode");
+
+  function handleDelete(coinId) {
+    const coinsMinusOne = faveCoins.filter(coin =>  coin.id !== coinId)
+    setFaveCoins(coinsMinusOne)
+  }
 
   function addToFavorites(coin){
     console.log('hello');
@@ -59,18 +64,20 @@ function App() {
     <div className={darkMode}>
       <Header handleDarkMode={handleDarkMode}/>
       <Switch>
-        <Route exact path="/coins">
+        <Route exact path="/">
           <CoinIndexPage
             handleChange={handleChange}
             filteredCoinsArray={filteredCoins()}
             addToFavorites={addToFavorites}
+            handleDelete={handleDelete}
+            faveCoins={faveCoins}
           />
         </Route>
         <Route exact path="/coins/:id">
           <CoinDetailPage />
         </Route>
         <Route exact path="/favorites">
-          <FavoriteCoins faveCoins={faveCoins}/>
+          <FavoriteCoins faveCoins={faveCoins} handleDelete={handleDelete}/>
         </Route>
       </Switch>
     </div>

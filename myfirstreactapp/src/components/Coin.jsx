@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Coin.css";
 import { Link, BrowserRouter } from "react-router-dom";
 
@@ -11,15 +11,29 @@ export default function Coin({
   image,
   priceChange,
   id,
-  addToFavorites
+  addToFavorites,
+  handleDelete,
+  faveCoins
 }) {
   const [favorite, setFavorite] = useState(false);
 
   function handleFavorite() {
     const addCoin = {name, price, symbol, marketcap, volume, image, priceChange, id}
-    addToFavorites(addCoin)
+    if (favorite){
+      handleDelete(id)
+    }else{
+      addToFavorites(addCoin)
+    }
+    
     setFavorite((favorite) => !favorite);
   }
+
+  useEffect(() => {
+    const favCoinsIds = faveCoins.map(coin => coin.id)
+    const favCoinBool = favCoinsIds.includes(id)
+
+    setFavorite(favCoinBool)
+  }, [faveCoins])
 
   return (
     <>
@@ -31,7 +45,7 @@ export default function Coin({
               type="button"
               onClick={handleFavorite}
             >
-              {favorite ? '✩' : '⭐' }
+              {favorite ? '⭐' : '✩' }
             </button>
             <img src={image} alt="" />
             <h1>{name}</h1>

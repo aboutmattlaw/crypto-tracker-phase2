@@ -1,7 +1,7 @@
 import React from "react";
 import Coin from "../components/Coin";
 
-const CoinIndexPage = ({ handleChange, filteredCoinsArray, addToFavorites }) => {
+const CoinIndexPage = ({ handleChange, filteredCoinsArray, addToFavorites, handleDelete, faveCoins }) => {
   return (
     <>
       <div className="coin-search">
@@ -18,6 +18,7 @@ const CoinIndexPage = ({ handleChange, filteredCoinsArray, addToFavorites }) => 
       {filteredCoinsArray.map((coin) => {
         return (
           <Coin
+            key={coin.id}
             id={coin.id}
             name={coin.name}
             price={coin.current_price}
@@ -27,6 +28,8 @@ const CoinIndexPage = ({ handleChange, filteredCoinsArray, addToFavorites }) => 
             image={coin.image}
             priceChange={coin.price_change_percentage_24h}
             addToFavorites={addToFavorites}
+            handleDelete={handleDelete} 
+            faveCoins={faveCoins}
           />
         );
       })}
