@@ -69,7 +69,7 @@ export default function CoinDetailPage() {
     return (
       <div className="chart-container">
         <Chart data={coinData.year} />
-        <CoinData data={coinData.detail}/>
+        <CoinData data={coinData.detail} />
       </div>
     );
   };

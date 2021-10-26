@@ -14,17 +14,17 @@ function App() {
   const [darkMode, setDarkMode] = useState("not-dark-mode");
 
   function handleDelete(coinId) {
-    const coinsMinusOne = faveCoins.filter(coin =>  coin.id !== coinId)
-    setFaveCoins(coinsMinusOne)
+    const coinsMinusOne = faveCoins.filter((coin) => coin.id !== coinId);
+    setFaveCoins(coinsMinusOne);
   }
 
-  function addToFavorites(coin){
-    console.log('hello');
-   const addedCoin = [...faveCoins, coin]
-   setFaveCoins(addedCoin)
+  function addToFavorites(coin) {
+    console.log("hello");
+    const addedCoin = [...faveCoins, coin];
+    setFaveCoins(addedCoin);
   }
 
-  console.log('FAV', faveCoins);
+  console.log("FAV", faveCoins);
 
   useEffect(() => {
     axios
@@ -53,17 +53,17 @@ function App() {
   }
 
   function handleDarkMode() {
-    console.log(" Dark Mode")
-    if(darkMode === "not-dark-mode") {
-      setDarkMode("dark-mode")
-    }else {
-      setDarkMode("not-dark-mode")
+    console.log(" Dark Mode");
+    if (darkMode === "not-dark-mode") {
+      setDarkMode("dark-mode");
+    } else {
+      setDarkMode("not-dark-mode");
     }
   }
 
   return (
     <div className={darkMode}>
-      <Header handleDarkMode={handleDarkMode}/>
+      <Header handleDarkMode={handleDarkMode} />
       <Switch>
         <Route exact path="/">
           <CoinIndexPage
@@ -78,10 +78,10 @@ function App() {
           <CoinDetailPage />
         </Route>
         <Route exact path="/favorites">
-          <FavoriteCoins faveCoins={faveCoins} handleDelete={handleDelete}/>
+          <FavoriteCoins faveCoins={faveCoins} handleDelete={handleDelete} />
         </Route>
       </Switch>
     </div>
   );
 }
-export default App; 
+export default App;
