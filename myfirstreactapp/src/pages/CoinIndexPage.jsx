@@ -31,7 +31,11 @@ const CoinIndexPage = ({
 
     debugger;
 
-    // fetch(url, configObj)
+    fetch("http://localhost:9292/users", configObj)
+      .then((resp) => resp.json())
+      .then((newUser) => {
+        newUser(newUser);
+      });
   }
 
   function handleUserNameInput(e) {
@@ -49,15 +53,18 @@ const CoinIndexPage = ({
 
   return (
     <>
-      <div className="coin-search">
-        <form onSubmit={newUser}>
-          <input
+
+            <input
             className="coin-input"
             type="text"
             onChange={handleChange}
             placeholder="Search"
           />
 
+
+      <div className="coin-search">
+        <form onSubmit={newUser}>
+        
           <input
             className="coin-input"
             name="userName"
