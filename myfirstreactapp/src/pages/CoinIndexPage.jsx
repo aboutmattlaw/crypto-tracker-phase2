@@ -15,6 +15,9 @@ const CoinIndexPage = ({
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+
+  
+
   function newUser(e) {
     e.preventDefault()
     const newUser = {
@@ -31,9 +34,6 @@ const CoinIndexPage = ({
       body: JSON.stringify(newUser),
     };
 
-
-    // const currentUserId = localStorage.user_id
-    // fetch(`http://localhost:9292/users/${currentUserId}
 
     fetch(`http://localhost:9292/users`, configObj)
       .then((resp) => resp.json())
@@ -95,6 +95,7 @@ const CoinIndexPage = ({
           />
           <input type="submit" value="Create User" />
         </form>
+
       </div>
 
       {filteredCoinsArray.map((coin) => {
