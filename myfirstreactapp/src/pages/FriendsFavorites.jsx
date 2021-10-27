@@ -8,13 +8,23 @@ import FriendsCoin from "../components/FriendsCoin";
 function FriendsFavorites() {
   const [friendList, setFriendList] = useState([]);
 
+
+
   useEffect(() => {
-    fetch("http://localhost:9292/users")
+        const currentUserId = localStorage.user_id
+
+    fetch(`http://localhost:9292/users/${currentUserId}/friends`)
       .then((r) => r.json())
       .then((data) => setFriendList(data));
   }, []);
 
   console.log(friendList);
+
+
+
+
+    // fetch(`http://localhost:9292/users/${currentUserId}
+
 
   // useEffect(() => {
   //   axios.get("http://localhost:9292/users").then((res) => {

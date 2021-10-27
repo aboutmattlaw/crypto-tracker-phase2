@@ -15,7 +15,8 @@ const CoinIndexPage = ({
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  function newUser() {
+  function newUser(e) {
+    e.preventDefault()
     const newUser = {
       email,
       username: userName,
@@ -30,12 +31,15 @@ const CoinIndexPage = ({
       body: JSON.stringify(newUser),
     };
 
-    debugger;
 
-    fetch("http://localhost:9292/users", configObj)
+    // const currentUserId = localStorage.user_id
+    // fetch(`http://localhost:9292/users/${currentUserId}
+
+    fetch(`http://localhost:9292/users`, configObj)
       .then((resp) => resp.json())
       .then((newUser) => {
-        newUser(newUser);
+        console.log(newUser)
+      localStorage.setItem("user_id",newUser.id)
       });
   }
 
