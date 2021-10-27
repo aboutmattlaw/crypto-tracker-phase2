@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Coin from "../components/Coin";
+import Sidebar from "../components/Sidebar";
 
 const CoinIndexPage = ({
   handleChange,
