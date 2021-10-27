@@ -7,6 +7,7 @@ import FriendsCoin from "../components/FriendsCoin";
 
 function FriendsFavorites() {
   const [friendList, setFriendList] = useState([]);
+  const [myCoinList, setMyCoinList] = useState([]);
 
 
 
@@ -18,7 +19,22 @@ function FriendsFavorites() {
       .then((data) => setFriendList(data));
   }, []);
 
+
+
+  useEffect(() => {
+    const currentUserId = localStorage.user_id
+
+  fetch(`http://localhost:9292/users/${currentUserId}/favorites`)
+  .then((r) => r.json())
+  .then((data) => setMyCoinList(data));
+}, []);
+
+
+
+
   console.log(friendList);
+
+  console.log(myCoinList);
 
 
 
@@ -37,7 +53,7 @@ function FriendsFavorites() {
     <div>
       <Sidebar friendList={friendList} />
       <FriendSearchBar />
-      <FriendsCoin />
+      <FriendsCoin myCoinList={myCoinList}/>
     </div>
   );
 }

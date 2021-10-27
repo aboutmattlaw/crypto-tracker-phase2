@@ -1,12 +1,32 @@
 import React from "react";
 import Coin from "./Coin";
 
-function FriendsCoin() {
+
+
+
+
+
+function FriendsCoin({myCoinList}) {
+
+
+    const myFaveCoins = myCoinList.map((myCoinList) => {
+      return (
+        <>
+      <li>{myCoinList.name}</li> 
+      <li>{myCoinList.symbol}</li>
+      <li>{myCoinList.api_coin_id}</li>
+      <img src={myCoinList.image_url}/>
+      </>);
+    });
+
+
+  console.log(myCoinList)
+
   return (
     <div>
       <div className="FriendCoinContainer">
         <div className="FriendCoin-Row">
-          <div className="FriendCoin"></div>
+          <ul className="FriendCoin">{myFaveCoins}</ul>
         </div>
       </div>
     </div>
@@ -14,3 +34,4 @@ function FriendsCoin() {
 }
 
 export default FriendsCoin;
+
