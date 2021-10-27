@@ -14,7 +14,7 @@ function FriendsCoin({myCoinList}) {
         <>
       <li>{myCoinList.name}</li> 
       <li>{myCoinList.symbol}</li>
-      <li>{myCoinList.api_coin_id}</li>
+      <li>{myCoinList.api_coin.id}</li>
       <img src={myCoinList.image_url}/>
       </>);
     });

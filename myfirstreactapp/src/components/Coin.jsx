@@ -62,7 +62,7 @@ export default function Coin({
               <p className="coin-symbol">{symbol}</p>
             </Link>
           </div>
-          <div className="coin-data">
+          {/* <div className="coin-data">
             <p className="coin-price">{price}</p>
             <p className="coin-volume">${volume.toLocaleString()}</p>
 
@@ -74,7 +74,7 @@ export default function Coin({
             <p className="coin-marketcap">
               Mkt Cap ${marketcap.toLocaleString()}
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
