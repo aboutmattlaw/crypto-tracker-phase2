@@ -6,6 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import CoinDetailPage from "./pages/CoinDetailPage";
 import CoinIndexPage from "./pages/CoinIndexPage";
 import FavoriteCoins from "./components/FavoriteCoins";
+import FriendsFavorites from "./pages/FriendsFavorites";
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -79,6 +80,9 @@ function App() {
         </Route>
         <Route exact path="/favorites">
           <FavoriteCoins faveCoins={faveCoins} handleDelete={handleDelete} />
+        </Route>
+        <Route exact path="/friends">
+          <FriendsFavorites />
         </Route>
       </Switch>
     </div>

@@ -53,18 +53,15 @@ const CoinIndexPage = ({
 
   return (
     <>
-
-            <input
-            className="coin-input"
-            type="text"
-            onChange={handleChange}
-            placeholder="Search"
-          />
-
+      <input
+        className="coin-input"
+        type="text"
+        onChange={handleChange}
+        placeholder="Search Tokens"
+      />
 
       <div className="coin-search">
         <form onSubmit={newUser}>
-        
           <input
             className="coin-input"
             name="userName"

@@ -8,7 +8,9 @@
 body {
   background: linear-gradient(-30deg, rgba(194, 43, 231, 0.418), #4d87df81),
     linear-gradient(30deg, rgb(151, 56, 214), rgb(77, 152, 223));
-    text-align: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 ul {
   list-style: none;
@@ -21,6 +23,5 @@ ul {
 
 .dark-mode {
   color: rgb(234, 230, 230);
-  background-color: rgb(66,63,63);
+  background-color: rgb(66, 63, 63);
 }
-

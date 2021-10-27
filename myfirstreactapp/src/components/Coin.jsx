@@ -13,27 +13,36 @@ export default function Coin({
   id,
   addToFavorites,
   handleDelete,
-  faveCoins
+  faveCoins,
 }) {
   const [favorite, setFavorite] = useState(false);
 
   function handleFavorite() {
-    const addCoin = {name, price, symbol, marketcap, volume, image, priceChange, id}
-    if (favorite){
-      handleDelete(id)
-    }else{
-      addToFavorites(addCoin)
+    const addCoin = {
+      name,
+      price,
+      symbol,
+      marketcap,
+      volume,
+      image,
+      priceChange,
+      id,
+    };
+    if (favorite) {
+      handleDelete(id);
+    } else {
+      addToFavorites(addCoin);
     }
-    
+
     setFavorite((favorite) => !favorite);
   }
 
   useEffect(() => {
-    const favCoinsIds = faveCoins.map(coin => coin.id)
-    const favCoinBool = favCoinsIds.includes(id)
+    const favCoinsIds = faveCoins.map((coin) => coin.id);
+    const favCoinBool = favCoinsIds.includes(id);
 
-    setFavorite(favCoinBool)
-  }, [faveCoins])
+    setFavorite(favCoinBool);
+  }, [faveCoins]);
 
   return (
     <>
@@ -45,10 +54,10 @@ export default function Coin({
               type="button"
               onClick={handleFavorite}
             >
-              {favorite ? '⭐' : '✩' }
+              {favorite ? "⭐" : "✩"}
             </button>
             <img src={image} alt="" />
-            <h1>{name}</h1>
+            <h1 className="coin-name">{name}</h1>
             <Link to={`/coins/${id}`}>
               <p className="coin-symbol">{symbol}</p>
             </Link>
@@ -58,9 +67,9 @@ export default function Coin({
             <p className="coin-volume">${volume.toLocaleString()}</p>
 
             {priceChange < 0 ? (
-              <p className="coin-percent red">{priceChange.toFixed(2)}%</p>
+              <p className="coin-percent-red">{priceChange.toFixed(2)}%</p>
             ) : (
-              <p className="coin-percent green">{priceChange.toFixed(2)}%</p>
+              <p className="coin-percent-green">{priceChange.toFixed(2)}%</p>
             )}
             <p className="coin-marketcap">
               Mkt Cap ${marketcap.toLocaleString()}

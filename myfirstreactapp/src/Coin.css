@@ -31,6 +31,10 @@
   margin-right: 10px;
 }
 
+.coin-name {
+  font-weight: bold;
+}
+
 .coin-symbol {
   text-transform: uppercase;
 }
@@ -44,6 +48,7 @@
 
 .coin-price {
   width: 110px;
+  font-weight: bold;
 }
 
 .coin-volume {
@@ -56,5 +61,13 @@
 .coin-button {
   margin-right: 10px;
   border: none;
-  background: transparent
+  background: transparent;
+}
+
+.coin-percent-red {
+  color: red;
+}
+
+.coin-percent-green {
+  color: green;
 }
