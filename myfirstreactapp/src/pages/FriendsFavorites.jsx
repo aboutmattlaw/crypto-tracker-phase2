@@ -8,7 +8,7 @@ import FriendsCoin from "../components/FriendsCoin";
 function FriendsFavorites() {
   const [friendList, setFriendList] = useState([]);
   const [myCoinList, setMyCoinList] = useState([]);
-
+  const [notFriendList, setNotFriendList] = useState([]);
 
 
   useEffect(() => {
@@ -24,6 +24,19 @@ function FriendsFavorites() {
   useEffect(() => {
     const currentUserId = localStorage.user_id
 
+fetch(`http://localhost:9292/users/${currentUserId}/notfriends`)
+  .then((r) => r.json())
+  .then((data) => setNotFriendList(data));
+}, []);
+
+
+
+
+  
+
+  useEffect(() => {
+    const currentUserId = localStorage.user_id
+
   fetch(`http://localhost:9292/users/${currentUserId}/favorites`)
   .then((r) => r.json())
   .then((data) => setMyCoinList(data));
@@ -33,7 +46,7 @@ function FriendsFavorites() {
 
 
   console.log(friendList);
-
+  console.log(notFriendList);
   console.log(myCoinList);
 
 
@@ -51,7 +64,7 @@ function FriendsFavorites() {
 
   return (
     <div>
-      <Sidebar friendList={friendList} />
+      <Sidebar friendList={friendList} notFriendList={notFriendList}/>
       <FriendSearchBar />
       <FriendsCoin myCoinList={myCoinList} friendList={friendList}/>
     </div>
