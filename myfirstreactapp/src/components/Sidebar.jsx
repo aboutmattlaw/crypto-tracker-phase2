@@ -4,14 +4,53 @@ import "../SideBar.css";
 function Sidebar({ friendList, notFriendList }) {
 
 
+/////////
+
+
+function addFriendClick (e){
+  console.log(e.target.id)
+
+
+const currentUserId = localStorage.user_id
+
+const newFriendship = {
+    friender_id: currentUserId,
+    friendee_id: e.target.id,
+  };
+  const configObj = {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newFriendship),
+  };
+
+
+  fetch(`http://localhost:9292/friendships`, configObj)
+    .then((resp) => resp.json())
+    .then((newFriendship) => console.log(newFriendship)
+  );
+}
+
+
+
+// const currentUserId = localStorage.user_id
+
+// fetch(`http://localhost:9292/users/${currentUserId}/friends`)
+//   .then((r) => r.json())
+//   .then((data) => setFriendList(data));
+
+////////
 
 
   
+
   
   const notFriends = notFriendList.map((friendList) => {
     return (
       <>
-    <li>{friendList.username}</li> 
+    <li id={friendList.id} onClick={addFriendClick}>{friendList.username}</li> 
     </>
     )
   });

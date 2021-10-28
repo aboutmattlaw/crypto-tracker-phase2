@@ -7,18 +7,24 @@ import Coin from "./Coin";
 function FriendsCoin({myCoinList} , {friendList}) {
 
 
-function listMap (data){
-fetch(`http://localhost:9292/users`)
-  .then((r) => r.json())
-  .then((data) => listMap(data));
+// function listMap (data){
+// fetch(`http://localhost:9292/users`)
+//   .then((r) => r.json())
+//   .then((data) => listMap(data));
   
-  const friendData = data.map((fri) => {
-    return (
-      <>     
-    <li>{fri.username}</li> 
-     </>);
-  });
-  }
+//   const friendData = data.map((fri) => {
+//     return (
+//       <>     
+//     <li>{fri.username}</li> 
+//      </>);
+//   });
+//   }
+
+
+
+
+
+
 
     const myFaveCoins = myCoinList.map((myCoinList) => {
       return (
@@ -32,7 +38,16 @@ fetch(`http://localhost:9292/users`)
     });
 
 
-   
+    // const bodyFriendList = friendList.map((friendList) => {
+    //   return (
+    //     <>
+    //     <li>{friendList.name}</li> 
+    //     </>);
+    //   });
+
+
+
+
 
   console.log(myCoinList)
 
@@ -44,7 +59,7 @@ fetch(`http://localhost:9292/users`)
         <div className="FriendCoin-Row">
           <ul className="FriendCoin">{myFaveCoins}</ul>
           <h1>Friend Coins</h1>
-          <ul className="FriendCoin">placeholder</ul>
+          <ul className="FriendCoin"></ul>
         </div>
       </div>
     </div>
