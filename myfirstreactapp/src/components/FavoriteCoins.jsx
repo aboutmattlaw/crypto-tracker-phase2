@@ -1,7 +1,7 @@
 import React from "react";
 import Coin from "./Coin";
 
-const FavoriteCoins = ({faveCoins, handleDelete}) => {
+const FavoriteCoins = ({faveCoins, handleDelete, }) => {
     console.log(faveCoins);
   return (
     <div>

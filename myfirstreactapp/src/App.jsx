@@ -23,7 +23,29 @@ function App() {
     console.log("hello");
     const addedCoin = [...faveCoins, coin];
     setFaveCoins(addedCoin);
-  }
+      const newFave = {
+        coin_id: coin.id,
+        user_id: localStorage.user_id,
+      }
+
+      const configObj = {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newFave),
+      };
+  
+  
+      fetch(`http://localhost:9292/favorites`, configObj)
+        .then((resp) => resp.json())
+        .then((newUser) => {
+          console.log(newFave)
+        });
+    }
+
+
 
   console.log("FAV", faveCoins);
 
@@ -103,5 +125,6 @@ function App() {
       </Switch>
     </div>
   );
-}
+  
+  }
 export default App;

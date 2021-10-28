@@ -53,7 +53,7 @@ function FriendsFavorites() {
     <div>
       <Sidebar friendList={friendList} />
       <FriendSearchBar />
-      <FriendsCoin myCoinList={myCoinList}/>
+      <FriendsCoin myCoinList={myCoinList} friendList={friendList}/>
     </div>
   );
 }
