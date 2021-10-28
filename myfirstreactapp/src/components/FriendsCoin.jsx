@@ -7,6 +7,19 @@ import Coin from "./Coin";
 function FriendsCoin({myCoinList} , {friendList}) {
 
 
+function listMap (data){
+fetch(`http://localhost:9292/users`)
+  .then((r) => r.json())
+  .then((data) => listMap(data));
+  
+  const friendData = data.map((fri) => {
+    return (
+      <>     
+    <li>{fri.username}</li> 
+     </>);
+  });
+  }
+
     const myFaveCoins = myCoinList.map((myCoinList) => {
       return (
         <>

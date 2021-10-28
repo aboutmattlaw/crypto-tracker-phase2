@@ -2,8 +2,18 @@ import React from "react";
 import "../SideBar.css";
 
 function Sidebar({ friendList }) {
+
+
+
+
+
+  
   const menuItems = friendList.map((friendList) => {
-    return <li>{friendList.username}</li>;
+    return (
+      <>
+    <li>{friendList.username} <button>x</button></li> 
+    </>
+    )
   });
 
   return (
