@@ -26,24 +26,26 @@ function coinClick (e){
   
     return (
       <>
-   <ul>
+   
      <li>
-       Are in: {friend.username}
+       <h4>{friend.username} is in!</h4>
      </li>
-   </ul>
     </>);
   });
   
+
  
     return (
         <>
-          
-        <li>{name}</li> 
-        <li>{symbol}</li>
+     <div>
+        <li><h2>{name}</h2></li> 
+        <li><h3>{symbol}</h3></li>
         <li>{api_coin_id}</li>
         <img src={image_url} id={id}/>
-        <button onClick={coinClick}>Who's In?</button>
+        <li><button onClick={coinClick}>Who's In?</button></li>
         {toggleFriendsAreIn ? friendsIn : null}
+        <li>-----------</li>
+        </div>
         </>
     
   );

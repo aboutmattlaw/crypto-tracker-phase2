@@ -55,9 +55,9 @@ const newFriendship = {
 
   return (
     <div className="Sidebar">
-      <h4>My Friends</h4>
+      <h4>People I've Followed</h4>
       <ul className="SidebarFriendList">{menuItems}</ul>
-      <h4>Not Yet My Friends</h4>
+      <h4>Haven't Followed Yet</h4>
       <ul className="SidebarFriendList">{notFriends}</ul>
     </div>
   );

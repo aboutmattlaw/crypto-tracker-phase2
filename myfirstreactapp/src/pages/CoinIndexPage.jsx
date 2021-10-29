@@ -182,11 +182,15 @@ function handleBecomeOne (e) {
         </form> */}
 
 
-        <button onClick={handleLogOut}>Logout</button>
+
+<button onClick={handleLogOut}>Logout</button>
 <button onClick={handleBecomeOne}>Become One</button>
 
 
+
+
       </div>
+
 
       {filteredCoinsArray.map((coin) => {
         return (
@@ -207,6 +211,12 @@ function handleBecomeOne (e) {
         );
       })}
     </>
+
   );
+
+
 };
+
+
+
 export default CoinIndexPage;

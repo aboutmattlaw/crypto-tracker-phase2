@@ -57,7 +57,6 @@ const myFaveCoins = myCoinList.map((coin) => {
       <div className="FriendCoinContainer">
         <div className="FriendCoin-Row">
          <ul className="FriendCoin">{myFaveCoins}</ul>
-          <h1>Friend Coins</h1>
           <ul className="FriendCoin">{friendList}</ul>
         </div>
       </div>

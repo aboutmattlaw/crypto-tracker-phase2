@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const FriendsAreIn = ({friendsIn}) => {
   return (
     
-    <ul>
-        <li>friendsIn.username</li>
-    </ul>
+    
+    <li>friendsIn.username</li>
+    
 
   );
 };
