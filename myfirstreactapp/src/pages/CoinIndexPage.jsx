@@ -158,7 +158,7 @@ function handleBecomeOne (e) {
         </form>
 
 
-
+{/* 
 
 <form onSubmit={userLogin}>
           <input
@@ -179,7 +179,7 @@ function handleBecomeOne (e) {
             placeholder="Password"
           />
           <input type="submit" value="Log In" />
-        </form>
+        </form> */}
 
 
         <button onClick={handleLogOut}>Logout</button>

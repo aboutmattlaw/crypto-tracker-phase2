@@ -14,6 +14,17 @@ function App() {
   const [filtered, setFiltered] = useState("");
   const [darkMode, setDarkMode] = useState("not-dark-mode");
 
+
+  // function mapFavToCoins(){
+  //   let mappedFaves = coins.map(coin => {
+  //     // if coin is also in faveCoins {
+  //       return {...coin, favorited: true}
+  //     // }else{
+  //       // return {...coin, favorited: false}
+  //     // }
+  //   })
+  // }
+
   function handleDelete(coinId) {
     const coinsMinusOne = faveCoins.filter((coin) => coin.id !== coinId);
     setFaveCoins(coinsMinusOne);

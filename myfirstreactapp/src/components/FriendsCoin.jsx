@@ -1,51 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Coin from "./Coin";
-
-
+import MyFaveCoins from "./MyFaveCoins";
 
 
 function FriendsCoin({myCoinList} , {friendList}) {
+const [myFriendsIn, setMyFriendsIn] = useState([]);
 
 
-// function listMap (data){
-// fetch(`http://localhost:9292/users`)
-//   .then((r) => r.json())
-//   .then((data) => listMap(data));
+
+function listMap (data){
+fetch(`http://localhost:9292/users`)
+  .then((r) => r.json())
+  .then((data) => listMap(data));
   
-//   const friendData = data.map((fri) => {
-//     return (
-//       <>     
-//     <li>{fri.username}</li> 
-//      </>);
-//   });
-//   }
+  const friendData = data.map((fri) => {
+    return (
+      <>     
+    <li>{fri.username}</li> 
+     </>);
+  });
+  }
+
+
+
+
+
+// get '/coin/:id/users' do
+// coins = Coin.find(params[:id]).users
+// coins.to_json
+// end
 
 
 
 
 
 
+ 
 
-    const myFaveCoins = myCoinList.map((myCoinList) => {
-      return (
-        <>
-        
-      <li>{myCoinList.name}</li> 
-      <li>{myCoinList.symbol}</li>
-      <li>{myCoinList.api_coin_id}</li>
-      <img src={myCoinList.image_url}/>
-      </>);
-    });
+const myFaveCoins = myCoinList.map((coin) => {
+  return (
+    <>
+    
+<MyFaveCoins {...coin}/>
 
-
-    // const bodyFriendList = friendList.map((friendList) => {
-    //   return (
-    //     <>
-    //     <li>{friendList.name}</li> 
-    //     </>);
-    //   });
-
-
+  </>);
+});
 
 
 
@@ -57,9 +56,9 @@ function FriendsCoin({myCoinList} , {friendList}) {
     <div>
       <div className="FriendCoinContainer">
         <div className="FriendCoin-Row">
-          <ul className="FriendCoin">{myFaveCoins}</ul>
+         <ul className="FriendCoin">{myFaveCoins}</ul>
           <h1>Friend Coins</h1>
-          <ul className="FriendCoin"></ul>
+          <ul className="FriendCoin">{friendList}</ul>
         </div>
       </div>
     </div>

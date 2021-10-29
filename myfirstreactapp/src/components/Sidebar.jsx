@@ -1,10 +1,7 @@
 import React from "react";
 import "../SideBar.css";
 
-function Sidebar({ friendList, notFriendList }) {
-
-
-/////////
+function Sidebar({ friendList, notFriendList, handleAddToFrinedsList, handleRemoveFromNotList }) {
 
 
 function addFriendClick (e){
@@ -29,21 +26,13 @@ const newFriendship = {
 
   fetch(`http://localhost:9292/friendships`, configObj)
     .then((resp) => resp.json())
-    .then((newFriendship) => console.log(newFriendship)
-  );
+    .then((user) => {
+      // delete from not freinds list in state
+      handleRemoveFromNotList(newFriendship.friendee_id, user)
+      // add to freinds list in state
+      // handleAddToFrinedsList(user)
+    })
 }
-
-
-
-// const currentUserId = localStorage.user_id
-
-// fetch(`http://localhost:9292/users/${currentUserId}/friends`)
-//   .then((r) => r.json())
-//   .then((data) => setFriendList(data));
-
-////////
-
-
   
 
   
